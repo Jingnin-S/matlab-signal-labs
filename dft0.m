@@ -1,0 +1,13 @@
+A=1;B=0.2;
+N=50;
+L=512;
+f1=100;f2=120;fsam=600;
+T=1/fsam;
+wsam=2*pi*fsam;
+t=(0:N-1)*T;
+x=A*cos(2*pi*f1*t)+B*cos(2*pi*f2*t);
+X=fft(x);
+X1=fftshift(X);
+w = (-wsam/2+(0:L-1)*wsam/L)/(2*pi);
+plot(w,abs(X1));
+ylabel('幅度谱');

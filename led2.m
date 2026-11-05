@@ -1,0 +1,9 @@
+ts=0;te=30;dt=1;
+a=[1,3,2];b=[2,1];
+sys=tf(b,a);%连续时间lti系统模型
+t=ts:dt:te;%起始，终点，时间间隔
+x=exp(-3*t);
+y=lsim(sys,x,t);%求解零状态响应
+plot(t,y);%画图
+xlabel('time(s)')
+ylabel('yzs(t)')
